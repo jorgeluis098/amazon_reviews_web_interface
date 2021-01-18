@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Proyecto Mineria Datos </title>
+    <meta charset="utf-8">
+    <meta name="description" content="descripcion de lo que se muestra en el navegador">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/styles/css/main.css">
+</head>
+<body>
+    <div class="one full">
+        <div class="one-section">
+            <h1>sentiment analysis for amazon reviews</h1>
+            <div class="d-flex justify-content-around my-5">
+                <div class="card card-text me-5" >
+                        <div class="card-body">
+                        <h5 class="card-title">Texto</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Ingresa el comentario que quieras evaluar</h6>
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" name="comentarios" rows="5" cols="60"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Evaluar</button>
+                        </form>
+                    </div>
+                </div>
+                 <!-- Seccion para mostrar el resultado -->
+                <div class="result-text mx-5">
+                </div>
+                <!-- Termina seccion para mostrar el resultado -->
+            </div>
+            <div class="d-flex justify-content-around my-5">
+                <div class="card card-archivo me-5" >
+                        <div class="card-body">
+                        <h5 class="card-title">Archivo</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Ingresa archivo que quieras evaluar</h6>
+                        <form>
+                            <div class="mb-3">
+                                <label for="fileApriori" class="form-label labelTitle">Archivo</label>
+                                <input type="file" class="form-control" id="fileApriori" aria-describedby="archivo" name= "fileApriori" accept=" .txt, .csv">
+                                <div class="form-text">Archivo a ser leido de tipo .txt  o .csv</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                 <!-- Seccion para mostrar el resultado -->
+                <div class="result-archivo mx-5">
+                </div>
+                <!-- Termina seccion para mostrar el resultado -->
+            </div>
+
+        </div>
+    </div>
+    <div class="two full">
+        <div class="two-section">
+            <h2>Descripcion</h2>
+        </div>
+    </div>
+</body>
+
+</html> 

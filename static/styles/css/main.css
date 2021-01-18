@@ -1,0 +1,66 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.one {
+  background-color: #111;
+  display: flex;
+}
+
+.two {
+  background-color: #111;
+}
+.two .labelTitle {
+  color: yellow;
+}
+.two .labelSubtitle {
+  color: deepskyblue;
+}
+
+.full {
+  height: 100vh;
+  width: 100vw;
+}
+
+.one-section, .two-section {
+  padding: 0 35px 0 35px;
+  width: 100%;
+}
+
+h1, h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.home .p1, .home .p2 {
+  color: #aaa;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(40, 209, 194, 0.75);
+}
+
+h1 {
+color: red;
+}
+/*# sourceMappingURL=main.css.map */
+
+.card-text{
+  width: 50%;
+}
+.result-text{
+  width: 50%;
+}
+.card-archivo{
+  width: 50%;
+}
+.result-archivo{
+  width: 50%;
+}
