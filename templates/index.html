@@ -7,9 +7,11 @@
     <meta name="description" content="descripcion de lo que se muestra en el navegador">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/styles/css/main.css">
+    <script rel="text/javascript" src="{{ url_for('static',filename='js/inference.js')}}"></script>
+
 </head>
 <body>
     <div class="one full">
@@ -22,14 +24,15 @@
                         <h6 class="card-subtitle mb-2 text-muted">Ingresa el comentario que quieras evaluar</h6>
                         <form>
                             <div class="mb-3">
-                                <textarea class="form-control" name="comentarios" rows="5" cols="60"></textarea>
+                                <textarea id="card_text" class="form-control" name="comentarios" rows="5" cols="60"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Evaluar</button>
+                            <button id="inference-text-btn" class="btn btn-primary">Evaluar</button>
                         </form>
                     </div>
                 </div>
                  <!-- Seccion para mostrar el resultado -->
-                <div class="result-text mx-5">
+                <div class="result-text mx-5 card">
+
                 </div>
                 <!-- Termina seccion para mostrar el resultado -->
             </div>
