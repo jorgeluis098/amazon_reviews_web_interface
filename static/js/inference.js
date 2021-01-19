@@ -3,7 +3,9 @@ $(document).ready(function (){
     graphs();
 
     $('#inference-text-btn').on('click', function (e) {
-		e.preventDefault()
+        e.preventDefault()
+        $('#imagen-positiva').removeClass('d-block').addClass('d-none');
+        $('#imagen-negativa').removeClass('d-block').addClass('d-none');
 		var formData = new FormData();
 		formData.append("card_text", $("#card_text").val())
         $.ajax({
@@ -13,17 +15,18 @@ $(document).ready(function (){
             contentType: false,
             processData: false,
             success: function(response){
-				$("#result").text(response["result"]);
+                if (response["result"]=="Negativo"){
+                    $('#imagen-negativa').removeClass('d-none').addClass('d-block');
+                } else {
+                    $('#imagen-positiva').removeClass('d-none').addClass('d-block');
+                    
+                }
             },
             error: function(error){
 				console.log("Error");
             }
         }); 
     });
-<<<<<<< HEAD
-    graphs();
-    function graphs (data){
-=======
 
 	
     $('#file-inference-btn').on('click', function (e) {
@@ -43,6 +46,8 @@ $(document).ready(function (){
                 */
                 //$("#result").text(response["result"]);
                 $("#resultado-2").html(response["img_positive"])
+                $("#resultado-3").html(response["img_negative"])
+                graphs(response["sentiment_data"]);
             },
             error: function(error){
 				console.log("Error");
@@ -51,8 +56,7 @@ $(document).ready(function (){
     });
 
     
-    function graphs (){
->>>>>>> 7890feb7eb0b3a2d2bcc3807b477e15d1ec50adb
+    function graphs (data){
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
             type: 'bar',
@@ -60,7 +64,7 @@ $(document).ready(function (){
                 labels: ['Negativos', 'Positivos'],
                 datasets: [{
                     label: 'Numero de comentarios',
-                    data: [12, 19],
+                    data: data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.3)',
                         'rgba(25, 135, 84, 0.3)'

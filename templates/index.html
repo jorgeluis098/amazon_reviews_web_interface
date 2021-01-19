@@ -34,19 +34,19 @@
                 </div>
                  <!-- Seccion para mostrar el resultado -->
                 <div  class="result-text mx-5 ">    
-                    <div class="container d-none">
+                    <div id="imagen-positiva" class="container d-none">
                         <img src="../static/images/positivo.png" alt="Avatar" class="image">
                         <div class="overlay">
-                          <div class="text">Positivo</div>
+                          <div class="text"> Positivo</div>
                         </div>
-                        <p id="result-text"> </p>
+                        <p id="result-text1"> Que bien tu comentario fue <span class="text-green fw-bold"> Positivo</span>  </p>
                       </div>
-                      <div class="container ">
+                      <div id="imagen-negativa" class="container d-none">
                         <img src="../static/images/negativo.png" alt="Avatar" class="image">
                         <div class="overlay-negative">
                           <div class="text">Negativo</div>
                         </div>
-                        <p id="result-text"> </p>
+                        <p id="result-text2"> Que mal tu comentario fue <span class="text-red fw-bold">Negativo </span> </p>
                       </div>
                 </div>
                 <!-- Termina seccion para mostrar el resultado -->
@@ -62,43 +62,39 @@
                                 <input type="file" class="form-control" id="file" aria-describedby="archivo" name= "file" accept=" .txt, .csv">
                                 <div class="form-text">Archivo a ser leido de tipo .txt  o .csv</div>
                             </div>
-<<<<<<< HEAD
-                            <button type="submit" class="btn btn-primary">Evaluar</button>
-=======
                             <fieldset>
                                 <button id="file-inference-btn" type="button" class="btn btn-sm btn-primary">Analizar Tabla</button>
                             </fieldset>
->>>>>>> 7890feb7eb0b3a2d2bcc3807b477e15d1ec50adb
                         </form>
                     </div>
                 </div>
                  <!-- Seccion para mostrar el resultado -->
                 <div class="result-archivo mx-5 card ">
                     <div class="card-body">
-                        <h5 class="card-title">resultado 1</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 1</h6>
+                        <h5 class="card-title">Grafica de resultados</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">A continuacion se muestra un grafico con los comentarios negativos y positivos</h6>
+                        <canvas id="myChart" width="400" height="200" ></canvas>
                     </div>
                 </div>
             </div>
             <div class="d-flex my-5 flex-row ">
-                <div class="card card-archivo me-5" >
-                    <div id="resultado-2" class="card-body">
-                        <h5 class="card-title">resultado 2</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 2</h6>
+                <div class="card card-archivo word-cloud me-5" >
+                    <div  class="card-body">
+                        <h5 class="card-title">Word cloud Positivo</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">A continuacion se muestra el word cloud de las palabras positivas de tu archivo</h6>
+                        <div id="resultado-2" class=" word-cloud"> </div>
                     </div>
                 </div>
-                 <!-- Seccion para mostrar el resultado -->
-                <div class="result-archivo mx-5 card ">
-                    <div class="card-body">
-                        <h5 class="card-title">resultado 3</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 3</h6>
-                        <canvas id="myChart" width="400" height="200" ></canvas>
+                <div class="card card-archivo word-cloud ms-5" >
+                    <div  class="card-body">
+                        <h5 class="card-title">Word cloud Negativo</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">A continuacion se muestra el word cloud de las palabras negativas de tu archivo</h6>
+                        <div id="resultado-3" class=" word-cloud2"> </div>
                     </div>
                 </div>
-                <!-- Termina seccion para mostrar el resultado -->
             </div>
             <div>
-                <button id="descargar-datos-btn" class="descargar-datos btn">Descarga tus resultados</button>
+                <a id="descargar-datos-btn" href="/export_table" class="descargar-datos btn">Descarga tus resultados</a>
             </div>
             <!-- seccion para la descripcion -->
             <div class="d-flex my-5 flex-column description ">
@@ -112,8 +108,8 @@
                     <ul>
                         <li class="d-flex"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/sentiment_analysis_for_amazon_reviews" class="me-1">Repositorio GitHub </a> Entrenamiento del modelo</li>
                         <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/amazon_reviews_web_interface"  class="me-1">Repositorio GitHub </a> Interfaz </li>
-                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href=""  class="me-1">Google colab </a> Inferencia </li>
-                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href=""  class="me-1">Google colab </a> Documentacion del entrenamiento del modelo </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1jhgh3vMej03TieeNxNnQbQLx6YPLg0zi?usp=sharing"  class="me-1">Google colab </a> Inferencia </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1HCfeldoQTKIiSMDvBukpJ_s7AVS5lrBz?usp=sharing"  class="me-1">Google colab </a> Documentacion del entrenamiento del modelo </li>
                     </ul>
                 </div> 
             </div>

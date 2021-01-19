@@ -162,3 +162,25 @@ text-decoration: underline;
 .descargar-datos:focus{
   box-shadow: none;
   }
+#resultado-2{
+  width: 100%;
+}
+.word-cloud img{
+  width: 100%;
+}
+.word-cloud {
+  width: 45%;
+}
+.word-cloud2 {
+  width: 100%;
+}
+#result-text1{
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+}
+#result-text2{
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+}

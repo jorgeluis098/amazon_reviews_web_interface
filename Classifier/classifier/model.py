@@ -9,6 +9,7 @@ import os
 from Classifier.tools.data_loader import Data
 
 device = 'cuda' if cuda.is_available() else 'cpu'
+#device = 'cpu' 
 torch.set_grad_enabled(False)
 
 class Model(object):
