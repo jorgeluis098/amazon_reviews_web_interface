@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Proyecto Mineria Datos </title>
+    <title>sentiment analysis for amazon reviews</title>
     <meta charset="utf-8">
     <meta name="description" content="descripcion de lo que se muestra en el navegador">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -10,13 +10,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/styles/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script rel="text/javascript" src="{{ url_for('static',filename='js/inference.js')}}"></script>
+    
 
 </head>
 <body>
     <div class="one full">
         <div class="one-section">
-            <h1>sentiment analysis for amazon reviews</h1>
+            <h1 class="title">Sentiment analysis for amazon reviews</h1>
             <div class="d-flex justify-content-around my-5">
                 <div class="card card-text me-5" >
                         <div class="card-body">
@@ -24,19 +26,32 @@
                         <h6 class="card-subtitle mb-2 text-muted">Ingresa el comentario que quieras evaluar</h6>
                         <form>
                             <div class="mb-3">
-                                <textarea id="card_text" class="form-control" name="comentarios" rows="5" cols="60"></textarea>
+                                <textarea id="card_text" class="form-control textarea-input" name="comentarios" rows="5" cols="60"></textarea>
                             </div>
-                            <button id="inference-text-btn" class="btn btn-primary">Evaluar</button>
+                            <button id="inference-text-btn" class="btn btn-primary mt-4">Evaluar</button>
                         </form>
                     </div>
                 </div>
                  <!-- Seccion para mostrar el resultado -->
-                <div class="result-text mx-5 card">
-
+                <div  class="result-text mx-5 ">    
+                    <div class="container d-none">
+                        <img src="../static/images/positivo.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                          <div class="text">Positivo</div>
+                        </div>
+                        <p id="result-text"> </p>
+                      </div>
+                      <div class="container ">
+                        <img src="../static/images/negativo.png" alt="Avatar" class="image">
+                        <div class="overlay-negative">
+                          <div class="text">Negativo</div>
+                        </div>
+                        <p id="result-text"> </p>
+                      </div>
                 </div>
                 <!-- Termina seccion para mostrar el resultado -->
             </div>
-            <div class="d-flex justify-content-around my-5">
+            <div class="d-flex my-5 flex-row">
                 <div class="card card-archivo me-5" >
                         <div class="card-body">
                         <h5 class="card-title">Archivo</h5>
@@ -52,18 +67,59 @@
                     </div>
                 </div>
                  <!-- Seccion para mostrar el resultado -->
-                <div class="result-archivo mx-5">
+                <div class="result-archivo mx-5 card ">
+                    <div class="card-body">
+                        <h5 class="card-title">resultado 1</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 1</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex my-5 flex-row ">
+                <div class="card card-archivo me-5" >
+                    <div class="card-body">
+                        <h5 class="card-title">resultado 2</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 2</h6>
+                    </div>
+                </div>
+                 <!-- Seccion para mostrar el resultado -->
+                <div class="result-archivo mx-5 card ">
+                    <div class="card-body">
+                        <h5 class="card-title">resultado 3</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 3</h6>
+                        <canvas id="myChart" width="400" height="400" ></canvas>
+                    </div>
                 </div>
                 <!-- Termina seccion para mostrar el resultado -->
             </div>
+            <div>
+                <div class="descargar-datos">Descarga tus resultados</div>
+            </div>
+            <!-- seccion para la descripcion -->
+            <div class="d-flex my-5 flex-column description ">
+                <h3>Descripcion</h3> 
+                <p>Este es un proyecto desarrollado por alumnos de la Facultad de Ingeniería UNAM</p>
+                <div> Es un modelo entrenado usando Berth 
+                </div> 
+            </div>
+        </div>
+    </div>
 
-        </div>
-    </div>
-    <div class="two full">
-        <div class="two-section">
-            <h2>Descripcion</h2>
-        </div>
-    </div>
 </body>
-
+<footer class="pie pt-3">
+    <div class="d-flex flex-column align-items-center">
+        <div class=" d-flex flex-row">
+            <a>Git hub</a>
+            <a>/ Twitter /</a>
+            <div class="d-flex felx-row">
+                <span class="material-icons">
+                    email
+                </span>
+                <p>miguel17546mals@gmail.com</p>
+            </div>
+        </div>
+        <div class=" ">
+            <p>2021</p>
+        </div>
+    </div>
+  </footer>
 </html> 
