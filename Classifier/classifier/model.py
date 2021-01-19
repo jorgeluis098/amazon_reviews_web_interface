@@ -5,6 +5,9 @@ from transformers import AutoModel, AutoTokenizer, BertTokenizer, BertForSequenc
 import numpy as np
 import pandas as pd
 import os
+
+from Classifier.tools.data_loader import Data
+
 device = 'cuda' if cuda.is_available() else 'cpu'
 torch.set_grad_enabled(False)
 
@@ -14,6 +17,7 @@ class Model(object):
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model=torch.load(model_bin)
         self.model.to(device)
+        self.MAX_LEN = 512
         
     def inference(self, text):
         review = " ".join(text.lower().split())
@@ -42,5 +46,19 @@ class Model(object):
         _, val = torch.max(output.data, dim=1)
         values = {0: "Negativo", 1: "Positivo"}
         return values[int(val)]
+        
 
+    def inference_df(self, df):
+        inference_params = {'batch_size': 1, 'num_workers': 0}
+        inference_test = Data(df, self.tokenizer, self.MAX_LEN)
+        inference_loader = DataLoader(inference_test, **inference_params)
+        outputs = []
+        values = {0: "Negativo", 1: "Positivo"}
+        for _,data in enumerate(inference_loader, 0):
+            ids = data['ids'].to(device, dtype = torch.long)
+            mask = data['mask'].to(device, dtype = torch.long)
+            output = self.model(ids, mask)
+            _, val = torch.max(output.data, dim=1)
+            outputs.append(values[int(val)])
+        return outputs
         
