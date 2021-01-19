@@ -1,5 +1,7 @@
 $(document).ready(function (){
 
+    graphs();
+
     $('#inference-text-btn').on('click', function (e) {
 		e.preventDefault()
 		var formData = new FormData();
@@ -11,18 +13,40 @@ $(document).ready(function (){
             contentType: false,
             processData: false,
             success: function(response){
-                console.log(response);
-                $("#result-text").html(response["result"]);
-                
+				$("#result").text(response["result"]);
             },
             error: function(error){
 				console.log("Error");
-                //set_modal(error);
-                //$("#js-loader").css("display","none");
             }
         }); 
     });
-    graphs();
+
+	
+    $('#file-inference-btn').on('click', function (e) {
+		e.preventDefault()
+		var form_data = new FormData($('#analize-file-form')[0]);
+        $.ajax({
+            url: '/inference_file',
+            data: form_data,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            success: function(response){
+                /*
+                response["sentiment_data"] = number
+                response["img_positive"] = get_wordcloud(topics_positive)
+                response["img_negative"] = get_wordcloud(topics_negative)
+                */
+                //$("#result").text(response["result"]);
+                $("#resultado-2").html(response["img_positive"])
+            },
+            error: function(error){
+				console.log("Error");
+            }
+        }); 
+    });
+
+    
     function graphs (){
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
