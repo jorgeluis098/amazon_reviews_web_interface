@@ -2,7 +2,7 @@ import os
 import zipfile
 import gdown
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, Response
 import pandas as pd
 from io import StringIO, BytesIO
 from base64 import b64encode
@@ -18,6 +18,7 @@ from Classifier.tools.reader import Reader
 
 matplotlib.use('Agg')
 
+export_data = {}
 
 def get_image_b64(b64encoded):
     image = """
@@ -79,6 +80,7 @@ def inference_file():
     new_df = reader.topytorch()
     outputs = model.inference_df(new_df)
     reader.df["sentiment"] = outputs
+    set_export_data(reader.df.to_csv(), filename)
     number = reader.df.groupby("sentiment")["review"].count()
     number = [val for val in number]
     negative = reader.df[reader.df["sentiment"]=="Negativo"]["review"].values.tolist()
@@ -89,6 +91,25 @@ def inference_file():
     response["img_positive"] = get_wordcloud(topics_positive)
     response["img_negative"] = get_wordcloud(topics_negative)
     return jsonify(response)
+
+def set_export_data(file,filename):
+    global export_data
+    # Export Data #########################################
+    export_data["EXPORT_FILE"] = file
+    export_data["EXPORT_FILENAME"] = filename
+    #######################################################
+
+
+@app.route("/export_table")
+def export_table():
+    csv = export_data["EXPORT_FILE"]
+    export_name = "attachment; filename=" + export_data["EXPORT_FILENAME"]
+    return Response(
+        csv,
+        mimetype="text/csv",
+        headers={"Content-disposition":
+                 export_name})
+
 
 @app.route("/")
 def index():
