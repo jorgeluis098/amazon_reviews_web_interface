@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>sentiment analysis for amazon reviews</title>
+    <title>Sentiment analysis for amazon reviews</title>
     <meta charset="utf-8">
     <meta name="description" content="descripcion de lo que se muestra en el navegador">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -18,7 +18,7 @@
 <body>
     <div class="one full">
         <div class="one-section">
-            <h1 class="title">Sentiment analysis for amazon reviews</h1>
+            <h1 class="title"> SENTIMENT ANALISYS FOR AMAZON REVIEWS</h1>
             <div class="d-flex justify-content-around my-5">
                 <div class="card card-text me-5" >
                         <div class="card-body">
@@ -62,7 +62,7 @@
                                 <input type="file" class="form-control" id="fileApriori" aria-describedby="archivo" name= "fileApriori" accept=" .txt, .csv">
                                 <div class="form-text">Archivo a ser leido de tipo .txt  o .csv</div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Evaluar</button>
                         </form>
                     </div>
                 </div>
@@ -86,19 +86,29 @@
                     <div class="card-body">
                         <h5 class="card-title">resultado 3</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Este es el resultado 3</h6>
-                        <canvas id="myChart" width="400" height="400" ></canvas>
+                        <canvas id="myChart" width="400" height="200" ></canvas>
                     </div>
                 </div>
                 <!-- Termina seccion para mostrar el resultado -->
             </div>
             <div>
-                <div class="descargar-datos">Descarga tus resultados</div>
+                <button id="descargar-datos-btn" class="descargar-datos btn">Descarga tus resultados</button>
             </div>
             <!-- seccion para la descripcion -->
             <div class="d-flex my-5 flex-column description ">
                 <h3>Descripcion</h3> 
-                <p>Este es un proyecto desarrollado por alumnos de la Facultad de Ingeniería UNAM</p>
-                <div> Es un modelo entrenado usando Berth 
+                <p>Este es un proyecto desarrollado por alumnos de la Facultad de Ingeniería UNAM para la materia de Análisis y procesamiento inteligente de textos</p>
+                <div>
+                    Para el desarrollo de este proyecto se minaron reseñas de amazon con las cuales 
+                    entrenamos un modelo usando Bert el cual aprendio a distinguir si una reseña es 
+                    <span class="fw-bold text-green">positiva</span> o <span class="fw-bold text-red">negativa</span> 
+                    en las siguientes ligas podras encontrar mas informacion:
+                    <ul>
+                        <li class="d-flex"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/sentiment_analysis_for_amazon_reviews" class="me-1">Repositorio GitHub </a> Entrenamiento del modelo</li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/amazon_reviews_web_interface"  class="me-1">Repositorio GitHub </a> Interfaz </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href=""  class="me-1">Google colab </a> Inferencia </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href=""  class="me-1">Google colab </a> Documentacion del entrenamiento del modelo </li>
+                    </ul>
                 </div> 
             </div>
         </div>
@@ -108,8 +118,8 @@
 <footer class="pie pt-3">
     <div class="d-flex flex-column align-items-center">
         <div class=" d-flex flex-row">
-            <a>Git hub</a>
-            <a>/ Twitter /</a>
+            <a href="https://github.com/jorgeluis098/amazon_reviews_web_interface">GitHub</a>
+            <a>/</a>
             <div class="d-flex felx-row">
                 <span class="material-icons">
                     email

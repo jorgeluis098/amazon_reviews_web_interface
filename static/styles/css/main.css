@@ -94,6 +94,12 @@ h1, h2 {
   background-color: #198754;
   border-radius: 50%;
 }
+.text-red{
+color: #B22222;
+}
+.text-green{
+color: #198754;
+}
 .overlay-negative{
   position: absolute;
   top: 0;
@@ -146,3 +152,13 @@ h1, h2 {
 .p-color{
   color: white;
 }
+.descargar-datos:hover{
+color: white;
+text-decoration: underline;
+}
+.descargar-datos{
+  color: #aaa;
+  }
+.descargar-datos:focus{
+  box-shadow: none;
+  }
