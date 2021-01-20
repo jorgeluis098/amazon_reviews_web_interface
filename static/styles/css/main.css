@@ -16,22 +16,13 @@ body {
 .card{
   background-color: #242526;
 }
-.two {
-  background-color: #18191A;
-}
-.two .labelTitle {
-  color: yellow;
-}
-.two .labelSubtitle {
-  color: deepskyblue;
-}
 
 .full {
   height: 100%;
   width: 100vw;
 }
 
-.one-section, .two-section {
+.one-section {
   padding: 0 35px 0 35px;
   width: 100%;
 }
@@ -41,13 +32,10 @@ h1, h2 {
   margin: 0;
 }
 
-.home .p1, .home .p2 {
-  color: #aaa;
-}
-
 .card-text{
   width: 50%;
 }
+
 .result-text{
   width: 50%;
 }
@@ -55,12 +43,15 @@ h1, h2 {
 .card-archivo{
   width: 50%;
 }
+
 .result-archivo{
   width: 50%;
 }
+
 .card-title{
   color: #aaa;
 }
+
 .title{
   color: white;
 }
@@ -92,7 +83,7 @@ h1, h2 {
   opacity: 0;
   transition: .5s ease;
   background-color: #198754;
-  border-radius: 50%;
+  border-radius: 15%;
 }
 .text-red{
 color: #B22222;
@@ -169,7 +160,7 @@ text-decoration: underline;
   width: 100%;
 }
 .word-cloud {
-  width: 45%;
+  width: 50%;
 }
 .word-cloud2 {
   width: 100%;
@@ -183,4 +174,88 @@ text-decoration: underline;
   color: #fff;
   text-align: center;
   font-size: 25px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Centrar contenedor vertical y horizontalmente */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.containerScroll {
+  overflow: auto;
+  flex-direction: column;
+}
+
+.containerScroll p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* Tamaño del scroll */
+.containerScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+ /* Estilos barra (thumb) de scroll */
+.containerScroll::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+.containerScroll::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.containerScroll::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+.containerScroll::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.containerScroll::-webkit-scrollbar-track:hover, 
+.containerScroll::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.accordion-button {
+  color: white;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #242526;
+  color: white;
+  border: none;
+}
+.accordion-button:not(.collapsed)::after{
+  background-image: none;
+}
+.text-name{
+  text-align: center;
+}
+.imagen-contact{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.accordion-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

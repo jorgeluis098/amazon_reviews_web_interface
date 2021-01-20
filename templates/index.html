@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <div class="one full">
+    <div class="one full containerScroll">
         <div class="one-section">
             <h1 class="title"> SENTIMENT ANALISYS FOR AMAZON REVIEWS</h1>
             <div class="d-flex justify-content-around my-5">
@@ -53,17 +53,20 @@
             </div>
             <div class="d-flex my-5 flex-row">
                 <div class="card card-archivo me-5" >
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
                         <h5 class="card-title">Archivo</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Ingresa archivo que quieras evaluar</h6>
-                        <form id="analize-file-form" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
+                        </div>
+                        
+                        <form id="analize-file-form"  method="POST" enctype="multipart/form-data">
+                            <div class="mb-5 pb-5">
                                 <label for="file" class="form-label labelTitle">Archivo</label>
                                 <input type="file" class="form-control" id="file" aria-describedby="archivo" name= "file" accept=" .txt, .csv">
-                                <div class="form-text">Archivo a ser leido de tipo .txt  o .csv</div>
+                                <div class="form-text mt-2">Archivo a ser leido de tipo .txt  o .csv</div>
                             </div>
                             <fieldset>
-                                <button id="file-inference-btn" type="button" class="btn btn-sm btn-primary">Analizar Tabla</button>
+                                <button id="file-inference-btn" type="button" class="btn btn-sm btn-primary">Analizar</button>
                             </fieldset>
                         </form>
                     </div>
@@ -85,7 +88,7 @@
                         <div id="resultado-2" class=" word-cloud"> </div>
                     </div>
                 </div>
-                <div class="card card-archivo word-cloud ms-5" >
+                <div class="card card-archivo word-cloud mx-5" >
                     <div  class="card-body">
                         <h5 class="card-title">Word cloud Negativo</h5>
                         <h6 class="card-subtitle mb-2 text-muted">A continuacion se muestra el word cloud de las palabras negativas de tu archivo</h6>
@@ -106,32 +109,61 @@
                     <span class="fw-bold text-green">positiva</span> o <span class="fw-bold text-red">negativa</span> 
                     en las siguientes ligas podras encontrar mas informacion:
                     <ul>
-                        <li class="d-flex"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/sentiment_analysis_for_amazon_reviews" class="me-1">Repositorio GitHub </a> Entrenamiento del modelo</li>
-                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/amazon_reviews_web_interface"  class="me-1">Repositorio GitHub </a> Interfaz </li>
-                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1jhgh3vMej03TieeNxNnQbQLx6YPLg0zi?usp=sharing"  class="me-1">Google colab </a> Inferencia </li>
-                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1HCfeldoQTKIiSMDvBukpJ_s7AVS5lrBz?usp=sharing"  class="me-1">Google colab </a> Documentacion del entrenamiento del modelo </li>
+                        <li class="d-flex"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/sentiment_analysis_for_amazon_reviews" target="_blank" class="me-1">Repositorio GitHub </a> Entrenamiento del modelo</li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://github.com/jorgeluis098/amazon_reviews_web_interface" target="_blank" class="me-1">Repositorio GitHub </a> Interfaz </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1jhgh3vMej03TieeNxNnQbQLx6YPLg0zi?usp=sharing" target="_blank" class="me-1">Google colab </a> Inferencia </li>
+                        <li class="d-flex mt-1"><span class="material-icons">offline_bolt</span><a href="https://colab.research.google.com/drive/1HCfeldoQTKIiSMDvBukpJ_s7AVS5lrBz?usp=sharing" target="_blank" class="me-1">Google colab </a> Documentacion del entrenamiento del modelo </li>
                     </ul>
                 </div> 
             </div>
         </div>
+        <footer class="pie pt-3">
+            <div class="d-flex flex-column align-items-center">
+                <div class=" d-flex flex-row">
+                    <a href="https://github.com/jorgeluis098/amazon_reviews_web_interface" target="_blank">GitHub</a>
+                    <a>/</a>
+                    <div class="d-flex felx-row">
+                        <span class="material-icons">
+                            email
+                        </span>
+                        <p>miguel17546mals@gmail.com</p>
+                    </div>
+                </div>
+                <div class=" ">
+                    <p class="mb-0">2021</p>
+                </div>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          <span class="ms-3">¿Quienes somos?</span>
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <img src="../static/images/miguel.jpg" class="imagen-contact">
+                            <a class="text-name" href="https://github.com/miguel17546mals" target="_blank">miguel17546mals</a>
+                        </div>
+                        <div class="accordion-body">
+                            <img src="../static/images/Jorge.PNG" class="imagen-contact">
+                            <a class="text-name" href="https://github.com/jorgeluis098" target="_blank">jorgeluis098</a>
+                        </div>
+                        <div class="accordion-body">
+                            <img src="../static/images/Enrique.png" class="imagen-contact">
+                            <a class="text-name" href="https://github.com/EnriqueGuerreroL" target="_blank">EnriqueGuerreroL</a>
+                        </div>
+                        <div class="accordion-body">
+                            <img src="../static/images/vicente.jpg" class="imagen-contact">
+                            <a class="text-name" href="https://github.com/ValdrST" target="_blank">ValdrST</a>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </footer>
     </div>
 
 </body>
-<footer class="pie pt-3">
-    <div class="d-flex flex-column align-items-center">
-        <div class=" d-flex flex-row">
-            <a href="https://github.com/jorgeluis098/amazon_reviews_web_interface">GitHub</a>
-            <a>/</a>
-            <div class="d-flex felx-row">
-                <span class="material-icons">
-                    email
-                </span>
-                <p>miguel17546mals@gmail.com</p>
-            </div>
-        </div>
-        <div class=" ">
-            <p>2021</p>
-        </div>
-    </div>
-  </footer>
+
 </html> 
