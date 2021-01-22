@@ -81,15 +81,20 @@ def inference_file():
     outputs = model.inference_df(new_df)
     reader.df["sentiment"] = outputs
     set_export_data(reader.df.to_csv(), filename)
-    number = reader.df.groupby("sentiment")["review"].count()
-    number = [val for val in number]
+    #number = reader.df.groupby("sentiment")["review"].count()
+    #number = [val for val in number]
     negative = reader.df[reader.df["sentiment"]=="Negativo"]["review"].values.tolist()
     positive = reader.df[reader.df["sentiment"]=="Positivo"]["review"].values.tolist()
-    topics_positive = TopicAna(positive).get_topics()
-    topics_negative = TopicAna(negative).get_topics()
+    number = [len(negative),len(positive)]
+    response["img_positive"] = ""
+    response["img_positive"] = ""
+    if len(positive)>0:
+        topics_positive = TopicAna(positive).get_topics()
+        response["img_positive"] = get_wordcloud(topics_positive)
+    if len(negative)>0:
+        topics_negative = TopicAna(negative).get_topics()
+        response["img_positive"] =get_wordcloud(topics_negative)
     response["sentiment_data"] = number
-    response["img_positive"] = get_wordcloud(topics_positive)
-    response["img_negative"] = get_wordcloud(topics_negative)
     return jsonify(response)
 
 def set_export_data(file,filename):
@@ -98,7 +103,6 @@ def set_export_data(file,filename):
     export_data["EXPORT_FILE"] = file
     export_data["EXPORT_FILENAME"] = filename
     #######################################################
-
 
 @app.route("/export_table")
 def export_table():
@@ -116,6 +120,6 @@ def index():
     return render_template("index.html")
   
 
-app.run(debug=True)
+app.run(debug=True,port=80)
     
     
