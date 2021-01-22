@@ -80,20 +80,20 @@ def inference_file():
     new_df = reader.topytorch()
     outputs = model.inference_df(new_df)
     reader.df["sentiment"] = outputs
-    set_export_data(reader.df.to_csv(), filename)
+    set_export_data(reader.df.to_csv(encoding='utf-8'), filename)
     #number = reader.df.groupby("sentiment")["review"].count()
     #number = [val for val in number]
     negative = reader.df[reader.df["sentiment"]=="Negativo"]["review"].values.tolist()
     positive = reader.df[reader.df["sentiment"]=="Positivo"]["review"].values.tolist()
     number = [len(negative),len(positive)]
     response["img_positive"] = ""
-    response["img_positive"] = ""
+    response["img_negative"] = ""
     if len(positive)>0:
         topics_positive = TopicAna(positive).get_topics()
         response["img_positive"] = get_wordcloud(topics_positive)
     if len(negative)>0:
         topics_negative = TopicAna(negative).get_topics()
-        response["img_positive"] =get_wordcloud(topics_negative)
+        response["img_negative"] =get_wordcloud(topics_negative)
     response["sentiment_data"] = number
     return jsonify(response)
 
